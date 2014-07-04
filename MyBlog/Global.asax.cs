@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MyBlog.DAL;
+using MyBlog.DataContract;
 
 namespace MyBlog
 {
@@ -22,6 +24,8 @@ namespace MyBlog
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+			System.Data.Entity.Database.SetInitializer<BlogContext>(new BlogContextInitializer());
 		}
 	}
 }

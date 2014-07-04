@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MyBlog.DataContract.Post>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+@foreach (var item in Model) {
+
+	<div align="center" style="color: #800000; font-size : 30px; font-family: monospace; text-decoration: underline; ">
+		@Html.DisplayFor(modelItem => item.Name)
+	</div>
+	<div style="margin-left: 30px; color: darkgreen; font-size: 20px; font-family: monospace">
+		@Html.Raw(Html.Encode(item.Text).Replace("\n", "<br />"))
+		@*@Html.DisplayFor(modelItem => item.Text)*@
+	</div>
+    <div align="right" style="font-family: monospace; color: lightgrey">
+	    @item.Date.ToString("f")
+		@*@Html.DisplayFor(modelItem => item.Date.ToString("f"))*@
+    </div>
+       
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
+        </td>*@
+}
+
